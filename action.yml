@@ -24,6 +24,6 @@ inputs:
         required: true
 runs:
     using: 'docker'
-    image: 'debian'
-    entrypoint: 'env'
-    # image: 'hashicorp/terraform:${{ inputs.TERRAFORM_VERSION }}'
+    # image: 'debian'
+    entrypoint: 'terraform version'
+    image: 'hashicorp/terraform:${{ inputs.TERRAFORM_VERSION }}'
