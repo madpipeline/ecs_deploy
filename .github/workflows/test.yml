@@ -1,0 +1,22 @@
+name: "build-test"
+on: # rebuild any PRs and main branch changes
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  test: # make sure the action works on a clean machine without building
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./
+      with:
+        AWS_ACCESS_KEY: 'var 1'
+        AWS_SECRET_KEY: 'var 2'
+        TERRAFORM_VERSION: 'latest'
+        TERRAFORM_WORKSPACE: 'var 4'
+        APPLICATION_NAME: 'var 5'
+        APPLICATION_DOCKER_IMAGE: 'var 6'
+    # - run: terraform version
+    # - run: env

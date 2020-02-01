@@ -1,0 +1,29 @@
+name: 'ECS Deploy'
+author: 'Code4Romania'
+description: 'Deploy your application to AWS ECS using Terraform'
+inputs:
+    AWS_ACCESS_KEY:
+        description: ''
+        required: true
+    AWS_SECRET_KEY:
+        description: ''
+        required: true
+    TERRAFORM_VERSION:
+        description: ''
+        required: false
+        default: 'latest'
+    TERRAFORM_WORKSPACE:
+        description: ''
+        required: false
+        default: 'staging'
+    APPLICATION_NAME:
+        description: ''
+        required: true
+    APPLICATION_DOCKER_IMAGE:
+        description: ''
+        required: true
+runs:
+    using: 'docker'
+    image: 'debian'
+    entrypoint: 'env'
+    # image: 'hashicorp/terraform:${{ inputs.TERRAFORM_VERSION }}'
